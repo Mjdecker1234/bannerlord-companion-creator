@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mount & Blade II: Bannerlord Companion Creator - Create and customize companions for Bannerlord">
+    <title>Bannerlord Companion Creator</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="title">⚔️ Bannerlord Companion Creator ⚔️</h1>
+        <p class="subtitle">Forge your perfect companion for Mount & Blade II: Bannerlord</p>
+    </header>
+
+    <div class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="culture">
+                <span class="tab-icon">🏰</span>
+                <span class="tab-label">Culture</span>
+            </button>
+            <button class="tab-btn" data-tab="name">
+                <span class="tab-icon">📜</span>
+                <span class="tab-label">Name</span>
+            </button>
+            <button class="tab-btn" data-tab="attributes">
+                <span class="tab-icon">💪</span>
+                <span class="tab-label">Attributes</span>
+            </button>
+            <button class="tab-btn" data-tab="skills">
+                <span class="tab-icon">🎯</span>
+                <span class="tab-label">Skills</span>
+            </button>
+            <button class="tab-btn" data-tab="traits">
+                <span class="tab-icon">🎭</span>
+                <span class="tab-label">Traits</span>
+            </button>
+            <button class="tab-btn" data-tab="equipment">
+                <span class="tab-icon">⚔️</span>
+                <span class="tab-label">Equipment</span>
+            </button>
+            <button class="tab-btn" data-tab="appearance">
+                <span class="tab-icon">👤</span>
+                <span class="tab-label">Appearance</span>
+            </button>
+            <button class="tab-btn" data-tab="export">
+                <span class="tab-icon">💾</span>
+                <span class="tab-label">Export</span>
+            </button>
+        </nav>
+
+        <div class="main-content">
+            <!-- Left Panel: Tab Contents -->
+            <div class="tab-content-area">
+                <!-- Culture Tab -->
+                <section id="tab-culture" class="tab-content active">
+                    <h2 class="section-title">Choose Your Culture</h2>
+                    <p class="section-desc">Select the culture for your companion. Each culture has unique bonuses and equipment.</p>
+                    <div id="culture-grid" class="culture-grid"></div>
+                </section>
+
+                <!-- Name Tab -->
+                <section id="tab-name" class="tab-content">
+                    <h2 class="section-title">Name Your Companion</h2>
+                    <div class="name-controls">
+                        <div class="gender-toggle">
+                            <button class="gender-btn active" data-gender="male">Male</button>
+                            <button class="gender-btn" data-gender="female">Female</button>
+                        </div>
+                        <div class="name-input-group">
+                            <input type="text" id="companion-name" class="name-input" placeholder="Enter name...">
+                            <button id="randomize-name" class="btn-secondary">🎲 Randomize</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Attributes Tab -->
+                <section id="tab-attributes" class="tab-content">
+                    <h2 class="section-title">Distribute Attributes</h2>
+                    <p class="section-desc">Distribute <span id="attribute-points-remaining" class="points-display">15</span> points across 6 attributes.</p>
+                    <div id="attributes-container" class="attributes-container"></div>
+                </section>
+
+                <!-- Skills Tab -->
+                <section id="tab-skills" class="tab-content">
+                    <h2 class="section-title">Skills & Focus Points</h2>
+                    <p class="section-desc">Set skill levels (0-330) and distribute <span id="focus-points-remaining" class="points-display">30</span> focus points.</p>
+                    <div id="skills-container" class="skills-container"></div>
+                </section>
+
+                <!-- Traits Tab -->
+                <section id="tab-traits" class="tab-content">
+                    <h2 class="section-title">Personality Traits</h2>
+                    <p class="section-desc">Define your companion's personality with trait sliders.</p>
+                    <div id="traits-container" class="traits-container"></div>
+                </section>
+
+                <!-- Equipment Tab -->
+                <section id="tab-equipment" class="tab-content">
+                    <h2 class="section-title">Equipment Loadout</h2>
+                    <div class="equipment-tabs">
+                        <button class="equipment-tab-btn active" data-category="armor">Armor</button>
+                        <button class="equipment-tab-btn" data-category="weapons">Weapons</button>
+                        <button class="equipment-tab-btn" data-category="mount">Mount</button>
+                    </div>
+                    <div id="equipment-container" class="equipment-container"></div>
+                </section>
+
+                <!-- Appearance Tab -->
+                <section id="tab-appearance" class="tab-content">
+                    <h2 class="section-title">Appearance Settings</h2>
+                    <div id="appearance-container" class="appearance-container"></div>
+                </section>
+
+                <!-- Export Tab -->
+                <section id="tab-export" class="tab-content">
+                    <h2 class="section-title">Export & Share</h2>
+                    <div id="export-container" class="export-container">
+                        <div class="export-section">
+                            <h3>Export as JSON</h3>
+                            <button id="export-json" class="btn-primary">📋 Copy JSON to Clipboard</button>
+                            <button id="download-json" class="btn-secondary">💾 Download JSON File</button>
+                        </div>
+                        <div class="export-section">
+                            <h3>Export as Bannerlord XML</h3>
+                            <button id="export-xml" class="btn-primary">📋 Copy XML to Clipboard</button>
+                            <button id="download-xml" class="btn-secondary">💾 Download XML File</button>
+                        </div>
+                        <div class="export-section">
+                            <h3>Share Link</h3>
+                            <button id="generate-link" class="btn-primary">🔗 Generate Share Link</button>
+                            <input type="text" id="share-link" class="share-link-input" readonly>
+                        </div>
+                        <div class="export-section">
+                            <h3>Import from JSON</h3>
+                            <textarea id="import-json" class="import-textarea" placeholder="Paste JSON here..."></textarea>
+                            <button id="import-btn" class="btn-primary">📥 Import Companion</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="tab-navigation">
+                    <button id="prev-tab" class="nav-btn">← Previous</button>
+                    <button id="next-tab" class="nav-btn">Next →</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Character Summary -->
+            <aside class="character-summary">
+                <h3 class="summary-title">Character Summary</h3>
+                <button class="summary-toggle" id="summary-toggle">▼</button>
+                <div id="summary-content" class="summary-content"></div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Mount & Blade II: Bannerlord Companion Creator | Not affiliated with TaleWorlds Entertainment</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
