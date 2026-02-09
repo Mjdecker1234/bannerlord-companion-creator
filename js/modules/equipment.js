@@ -181,4 +181,42 @@ function updateEquipmentSlot(slot, itemId) {
     }
 }
 
-export { renderEquipment };
+// Randomize equipment
+function randomizeEquipment() {
+    const state = getState();
+    const culture = state.culture || 'vlandia';
+    const newEquipment = { ...state.equipment };
+    
+    // Helper function to get random item from filtered list
+    const getRandomItem = (items, culture) => {
+        const filtered = filterEquipmentByCulture(items, culture);
+        if (filtered.length <= 1) return filtered[0]?.id || 'none';
+        // Skip the "none" option at index 0
+        const validItems = filtered.slice(1);
+        if (validItems.length === 0) return filtered[0]?.id || 'none';
+        return validItems[Math.floor(Math.random() * validItems.length)].id;
+    };
+    
+    // Randomize armor
+    newEquipment.headArmor = getRandomItem(equipment.headArmor, culture);
+    newEquipment.bodyArmor = getRandomItem(equipment.bodyArmor, culture);
+    newEquipment.handArmor = getRandomItem(equipment.handArmor, culture);
+    newEquipment.legArmor = getRandomItem(equipment.legArmor, culture);
+    newEquipment.cape = getRandomItem(equipment.cape, culture);
+    
+    // Randomize weapons
+    const allMeleeWeapons = [...equipment.oneHanded, ...equipment.twoHanded, ...equipment.polearms];
+    newEquipment.weapon1 = getRandomItem(allMeleeWeapons, culture);
+    newEquipment.weapon2 = getRandomItem(allMeleeWeapons, culture);
+    newEquipment.weapon3 = getRandomItem(equipment.ranged, culture);
+    newEquipment.weapon4 = getRandomItem([...equipment.shields, ...equipment.ammunition], culture);
+    
+    // Randomize mount
+    newEquipment.mount = getRandomItem(equipment.mounts, culture);
+    newEquipment.horseArmor = getRandomItem(equipment.horseArmor, culture);
+    
+    updateState({ equipment: newEquipment });
+    renderEquipment();
+}
+
+export { renderEquipment, randomizeEquipment };

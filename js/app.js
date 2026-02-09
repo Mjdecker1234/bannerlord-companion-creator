@@ -1,11 +1,11 @@
 // Main Application
 import { initCulture } from './modules/culture.js';
 import { initName, generateRandomName } from './modules/nameGen.js';
-import { initAttributes } from './modules/attributes.js';
-import { initSkills } from './modules/skills.js';
-import { initTraits } from './modules/traits.js';
-import { initEquipment } from './modules/equipment.js';
-import { initAppearance } from './modules/appearance.js';
+import { initAttributes, randomizeAttributes } from './modules/attributes.js';
+import { initSkills, randomizeSkills } from './modules/skills.js';
+import { initTraits, randomizeTraits } from './modules/traits.js';
+import { initEquipment, randomizeEquipment } from './modules/equipment.js';
+import { initAppearance, randomizeAppearance } from './modules/appearance.js';
 import { initExport } from './modules/export.js';
 import { parseUrlState } from './utils/helpers.js';
 
@@ -99,6 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup character summary
     setupSummary();
     
+    // Setup randomize button listeners
+    setupRandomizeButtons();
+    
     // Update summary
     updateSummary();
 });
@@ -187,6 +190,45 @@ function setupSummary() {
     }
 }
 
+// Setup randomize buttons
+function setupRandomizeButtons() {
+    // Global randomize all button
+    const randomizeAllBtn = document.getElementById('randomize-all');
+    if (randomizeAllBtn) {
+        randomizeAllBtn.addEventListener('click', randomizeAll);
+    }
+    
+    // Attributes randomize button
+    const randomizeAttributesBtn = document.getElementById('randomize-attributes');
+    if (randomizeAttributesBtn) {
+        randomizeAttributesBtn.addEventListener('click', randomizeAttributes);
+    }
+    
+    // Skills randomize button
+    const randomizeSkillsBtn = document.getElementById('randomize-skills');
+    if (randomizeSkillsBtn) {
+        randomizeSkillsBtn.addEventListener('click', randomizeSkills);
+    }
+    
+    // Traits randomize button
+    const randomizeTraitsBtn = document.getElementById('randomize-traits');
+    if (randomizeTraitsBtn) {
+        randomizeTraitsBtn.addEventListener('click', randomizeTraits);
+    }
+    
+    // Equipment randomize button
+    const randomizeEquipmentBtn = document.getElementById('randomize-equipment');
+    if (randomizeEquipmentBtn) {
+        randomizeEquipmentBtn.addEventListener('click', randomizeEquipment);
+    }
+    
+    // Appearance randomize button
+    const randomizeAppearanceBtn = document.getElementById('randomize-appearance');
+    if (randomizeAppearanceBtn) {
+        randomizeAppearanceBtn.addEventListener('click', randomizeAppearance);
+    }
+}
+
 function updateSummary() {
     const summaryContent = document.getElementById('summary-content');
     if (!summaryContent) return;
@@ -265,3 +307,29 @@ export function loadState(newState) {
     
     updateSummary();
 }
+
+// Randomize all companion data
+export function randomizeAll() {
+    // Randomize name
+    generateRandomName();
+    
+    // Randomize attributes
+    randomizeAttributes();
+    
+    // Randomize skills
+    randomizeSkills();
+    
+    // Randomize traits
+    randomizeTraits();
+    
+    // Randomize equipment
+    randomizeEquipment();
+    
+    // Randomize appearance
+    randomizeAppearance();
+    
+    updateSummary();
+}
+
+// Export randomizeAll for use in other modules
+window.randomizeAll = randomizeAll;

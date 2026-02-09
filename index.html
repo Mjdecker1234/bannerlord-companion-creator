@@ -18,6 +18,7 @@
     <header class="header">
         <h1 class="title">⚔️ Bannerlord Companion Creator ⚔️</h1>
         <p class="subtitle">Forge your perfect companion for Mount & Blade II: Bannerlord</p>
+        <button id="randomize-all" class="btn-randomize-all" title="Randomize Everything">🎲 Randomize All</button>
     </header>
 
     <div class="container">
@@ -64,6 +65,7 @@
                 <section id="tab-culture" class="tab-content active">
                     <h2 class="section-title">Choose Your Culture</h2>
                     <p class="section-desc">Select the culture for your companion. Each culture has unique bonuses and equipment.</p>
+                    <button class="btn-randomize-section" onclick="document.querySelector('.culture-grid .culture-card:nth-child(' + (Math.floor(Math.random() * 6) + 1) + ')').click()">🎲 Random Culture</button>
                     <div id="culture-grid" class="culture-grid"></div>
                 </section>
 
@@ -86,6 +88,7 @@
                 <section id="tab-attributes" class="tab-content">
                     <h2 class="section-title">Distribute Attributes</h2>
                     <p class="section-desc">Distribute <span id="attribute-points-remaining" class="points-display">15</span> points across 6 attributes.</p>
+                    <button class="btn-randomize-section" id="randomize-attributes">🎲 Randomize Attributes</button>
                     <div id="attributes-container" class="attributes-container"></div>
                 </section>
 
@@ -93,6 +96,7 @@
                 <section id="tab-skills" class="tab-content">
                     <h2 class="section-title">Skills & Focus Points</h2>
                     <p class="section-desc">Set skill levels (0-330) and distribute <span id="focus-points-remaining" class="points-display">30</span> focus points.</p>
+                    <button class="btn-randomize-section" id="randomize-skills">🎲 Randomize Skills</button>
                     <div id="skills-container" class="skills-container"></div>
                 </section>
 
@@ -100,12 +104,14 @@
                 <section id="tab-traits" class="tab-content">
                     <h2 class="section-title">Personality Traits</h2>
                     <p class="section-desc">Define your companion's personality with trait sliders.</p>
+                    <button class="btn-randomize-section" id="randomize-traits">🎲 Randomize Traits</button>
                     <div id="traits-container" class="traits-container"></div>
                 </section>
 
                 <!-- Equipment Tab -->
                 <section id="tab-equipment" class="tab-content">
                     <h2 class="section-title">Equipment Loadout</h2>
+                    <button class="btn-randomize-section" id="randomize-equipment">🎲 Randomize Equipment</button>
                     <div class="equipment-tabs">
                         <button class="equipment-tab-btn active" data-category="armor">Armor</button>
                         <button class="equipment-tab-btn" data-category="weapons">Weapons</button>
@@ -117,6 +123,7 @@
                 <!-- Appearance Tab -->
                 <section id="tab-appearance" class="tab-content">
                     <h2 class="section-title">Appearance Settings</h2>
+                    <button class="btn-randomize-section" id="randomize-appearance">🎲 Randomize Appearance</button>
                     <div id="appearance-container" class="appearance-container"></div>
                 </section>
 
@@ -124,6 +131,11 @@
                 <section id="tab-export" class="tab-content">
                     <h2 class="section-title">Export & Share</h2>
                     <div id="export-container" class="export-container">
+                        <div class="export-section">
+                            <h3>📦 Download as Vortex Mod (Recommended)</h3>
+                            <p class="export-desc">Download your companion as a complete Bannerlord mod package ready for Vortex Mod Manager installation.</p>
+                            <button id="download-vortex-mod" class="btn-primary">💾 Download Vortex Mod Files</button>
+                        </div>
                         <div class="export-section">
                             <h3>Export as JSON</h3>
                             <button id="export-json" class="btn-primary">📋 Copy JSON to Clipboard</button>

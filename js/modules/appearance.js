@@ -78,4 +78,18 @@ function updateAppearance(property, value) {
     updateState({ appearance: newAppearance });
 }
 
-export { renderAppearance };
+// Randomize appearance
+function randomizeAppearance() {
+    const state = getState();
+    const newAppearance = {
+        age: Math.floor(Math.random() * 51) + 20, // 20-70
+        weight: Math.floor(Math.random() * 101), // 0-100
+        build: Math.floor(Math.random() * 101) // 0-100
+    };
+    
+    updateState({ appearance: newAppearance });
+    renderAppearance();
+    setupAppearanceListeners();
+}
+
+export { renderAppearance, randomizeAppearance };

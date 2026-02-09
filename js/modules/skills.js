@@ -147,4 +147,44 @@ function updateFocusPoints() {
     }
 }
 
-export { updateFocusPoints };
+// Randomize all skills and focus points
+function randomizeSkills() {
+    const state = getState();
+    const newSkills = { ...state.skills };
+    
+    // Reset all skills
+    Object.keys(newSkills).forEach(key => {
+        newSkills[key] = { level: 0, focus: 0 };
+    });
+    
+    // Distribute focus points randomly (30 total)
+    let remainingFocus = FOCUS_POOL;
+    const skillKeys = Object.keys(newSkills);
+    
+    while (remainingFocus > 0) {
+        const randomSkill = skillKeys[Math.floor(Math.random() * skillKeys.length)];
+        if (newSkills[randomSkill].focus < 5) {
+            newSkills[randomSkill].focus++;
+            remainingFocus--;
+        }
+    }
+    
+    // Set random skill levels (0-330) for skills with focus
+    skillKeys.forEach(skillId => {
+        if (newSkills[skillId].focus > 0) {
+            // Higher focus -> higher skill level tendency
+            const baseLv = Math.floor(Math.random() * 150);
+            const focusBonus = newSkills[skillId].focus * 30;
+            newSkills[skillId].level = Math.min(330, baseLv + focusBonus);
+        } else {
+            // Random low level for others
+            newSkills[skillId].level = Math.floor(Math.random() * 50);
+        }
+    });
+    
+    updateState({ skills: newSkills });
+    renderSkills();
+    updateFocusPoints();
+}
+
+export { updateFocusPoints, randomizeSkills };

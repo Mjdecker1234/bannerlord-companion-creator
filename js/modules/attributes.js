@@ -127,4 +127,31 @@ function updateAttributePoints() {
     }
 }
 
-export { updateAttributePoints };
+// Randomize all attributes
+function randomizeAttributes() {
+    const state = getState();
+    const newAttributes = { ...state.attributes };
+    
+    // Reset all to 0
+    Object.keys(newAttributes).forEach(key => newAttributes[key] = 0);
+    
+    // Distribute 15 points randomly
+    let remainingPoints = ATTRIBUTE_POOL;
+    const attrKeys = Object.keys(newAttributes);
+    
+    while (remainingPoints > 0) {
+        // Pick a random attribute
+        const randomAttr = attrKeys[Math.floor(Math.random() * attrKeys.length)];
+        // Ensure it doesn't exceed 10
+        if (newAttributes[randomAttr] < 10) {
+            newAttributes[randomAttr]++;
+            remainingPoints--;
+        }
+    }
+    
+    updateState({ attributes: newAttributes });
+    renderAttributes();
+    updateAttributePoints();
+}
+
+export { updateAttributePoints, randomizeAttributes };
