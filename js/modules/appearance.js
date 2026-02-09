@@ -88,8 +88,7 @@ function randomizeAppearance() {
     };
     
     updateState({ appearance: newAppearance });
-    renderAppearance();
-    setupAppearanceListeners();
+    initAppearance(); // Re-initialize to update display and listeners
 }
 
 export { renderAppearance, randomizeAppearance };

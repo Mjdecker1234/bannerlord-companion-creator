@@ -198,6 +198,18 @@ function setupRandomizeButtons() {
         randomizeAllBtn.addEventListener('click', randomizeAll);
     }
     
+    // Culture randomize button
+    const randomizeCultureBtn = document.getElementById('randomize-culture');
+    if (randomizeCultureBtn) {
+        randomizeCultureBtn.addEventListener('click', () => {
+            const cultureCards = document.querySelectorAll('.culture-grid .culture-card');
+            if (cultureCards.length > 0) {
+                const randomIndex = Math.floor(Math.random() * cultureCards.length);
+                cultureCards[randomIndex].click();
+            }
+        });
+    }
+    
     // Attributes randomize button
     const randomizeAttributesBtn = document.getElementById('randomize-attributes');
     if (randomizeAttributesBtn) {
@@ -332,4 +344,4 @@ export function randomizeAll() {
 }
 
 // Export randomizeAll for use in other modules
-window.randomizeAll = randomizeAll;
+export { randomizeAll };
