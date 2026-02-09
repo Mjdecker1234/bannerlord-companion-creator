@@ -5,6 +5,7 @@ import { updateState, getState } from '../app.js';
 export function initName() {
     setupNameListeners();
     updateNameDisplay();
+    updateGenderDisplay();
 }
 
 function setupNameListeners() {
@@ -71,6 +72,19 @@ function updateNameDisplay() {
         const state = getState();
         nameInput.value = state.name || '';
     }
+}
+
+function updateGenderDisplay() {
+    const state = getState();
+    const currentGender = state.gender || 'male';
+    
+    // Update UI buttons
+    document.querySelectorAll('.gender-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.gender === currentGender) {
+            btn.classList.add('active');
+        }
+    });
 }
 
 export { generateRandomName, updateNameDisplay, randomizeGender };
