@@ -8,6 +8,21 @@ A complete, polished, single-page web application for creating custom companions
 
 ## 🎮 Features
 
+### 🎲 Randomization System (NEW!)
+- **One-Click Full Randomization**: Generate a completely random companion with the "Randomize All" button
+- **Per-Section Randomization**: Randomize individual aspects (culture, name, attributes, skills, traits, equipment, appearance)
+- **Smart Randomization**: 
+  - Attributes: Distributes 15 points randomly while respecting limits
+  - Skills: Distributes 30 focus points and sets skill levels based on focus
+  - Traits: Random values between -2 and +2
+  - Equipment: Culture-appropriate random gear selection
+
+### 📦 Vortex Mod Export (NEW!)
+- **One-Click Mod Creation**: Download your companion as a complete Bannerlord mod
+- **Vortex Compatible**: Ready for Vortex Mod Manager installation
+- **Complete Package**: Includes SubModule.xml, spcharacters.xml, and installation instructions
+- **Manual Installation Supported**: Can also be installed directly into game's Modules folder
+
 ### Culture Selection
 - **6 Bannerlord Cultures**: Vlandia, Sturgia, Empire, Aserai, Khuzait, and Battania
 - Each culture displays unique icons, lore descriptions, and gameplay bonuses
@@ -76,12 +91,28 @@ A complete, polished, single-page web application for creating custom companions
 - Collapsible on mobile devices
 
 ### Export & Share
+- **Download as Vortex Mod (NEW!)**: Export your companion as a complete mod package ready for Vortex Mod Manager
+  - Generates SubModule.xml for mod structure
+  - Creates spcharacters.xml with proper Bannerlord format
+  - Includes installation instructions README
+  - Compatible with manual installation and Vortex Mod Manager
 - **Export as JSON**: Full companion data in structured format
 - **Export as Bannerlord XML**: Mod-ready XML format matching game schema
 - **Copy to Clipboard**: One-click copying
 - **Download Files**: Save JSON or XML locally
 - **Share Links**: Generate encoded URLs to share companions
 - **Import**: Load companions from JSON or shared URLs
+
+### Randomization Features (NEW!)
+- **Global Randomize All**: Randomize everything with one click from the header button
+- **Per-Tab Randomization**: Each section has its own randomize button
+  - Randomize Culture: Pick a random culture
+  - Randomize Name: Generate random name based on culture and gender
+  - Randomize Attributes: Distribute 15 points randomly
+  - Randomize Skills: Distribute 30 focus points and set random skill levels
+  - Randomize Traits: Set random personality traits (-2 to +2)
+  - Randomize Equipment: Pick random culture-appropriate gear
+  - Randomize Appearance: Set random age, weight, and build
 
 ## 🎨 Design
 
@@ -180,14 +211,41 @@ This site is ready for GitHub Pages deployment:
 
 ## 🎯 Usage
 
+### Quick Start with Randomization
+1. **Click "Randomize All"** in the top-right corner for an instant random companion
+2. **Customize** any aspect you want to change
+3. **Export as Vortex Mod** to install in your game
+
+### Manual Creation
 1. **Select a Culture**: Choose from 6 Bannerlord cultures
 2. **Name Your Companion**: Use the random generator or enter a custom name
-3. **Distribute Attributes**: Allocate 15 points across 6 attributes
-4. **Set Skills**: Assign skill levels and distribute 30 focus points
-5. **Define Personality**: Adjust 5 trait sliders from -2 to +2
-6. **Equip Your Companion**: Choose armor, weapons, and mount
-7. **Customize Appearance**: Set age, weight, and build
-8. **Export**: Save as JSON/XML or generate a share link
+3. **Distribute Attributes**: Allocate 15 points across 6 attributes (or click Randomize)
+4. **Set Skills**: Assign skill levels and distribute 30 focus points (or click Randomize)
+5. **Define Personality**: Adjust 5 trait sliders from -2 to +2 (or click Randomize)
+6. **Equip Your Companion**: Choose armor, weapons, and mount (or click Randomize)
+7. **Customize Appearance**: Set age, weight, and build (or click Randomize)
+8. **Export**: Download as Vortex Mod, JSON/XML, or generate a share link
+
+### Installing Your Companion
+
+#### Using Vortex Mod Manager (Recommended)
+1. Click "Download Vortex Mod Files" in the Export tab
+2. Create a folder with your companion's name (e.g., "SiegfriedCompanion")
+3. Inside it, create a "ModuleData" folder
+4. Place SubModule.xml in the root folder
+5. Place spcharacters.xml in the ModuleData folder
+6. Compress the folder to a .zip file
+7. Install via Vortex: Mods → Install From File
+8. Enable the mod in Vortex and in the game launcher
+9. Find your companion in taverns across Calradia!
+
+#### Manual Installation
+1. Download the Vortex Mod Files
+2. Navigate to your Bannerlord installation folder
+3. Go to the Modules directory
+4. Create a new folder with your companion's name
+5. Follow the same structure as above
+6. Enable the mod in the game launcher
 
 ## 📝 Data Accuracy
 
