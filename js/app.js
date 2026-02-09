@@ -6,6 +6,8 @@ import { initSkills, randomizeSkills } from './modules/skills.js';
 import { initTraits, randomizeTraits } from './modules/traits.js';
 import { initEquipment, randomizeEquipment } from './modules/equipment.js';
 import { initAppearance, randomizeAppearance } from './modules/appearance.js';
+import { initDialogue, randomizeDialogue } from './modules/dialogue.js';
+import { initSavedCompanions } from './modules/savedCompanions.js';
 import { initExport } from './modules/export.js';
 import { parseUrlState } from './utils/helpers.js';
 
@@ -65,12 +67,17 @@ let state = {
         age: 30,
         weight: 50,
         build: 50
+    },
+    dialogue: {
+        greetings: [],
+        story: '',
+        personality: ''
     }
 };
 
 // Current tab
 let currentTab = 'culture';
-const tabs = ['culture', 'name', 'attributes', 'skills', 'traits', 'equipment', 'appearance', 'export'];
+const tabs = ['culture', 'name', 'attributes', 'skills', 'traits', 'equipment', 'appearance', 'dialogue', 'saved', 'export'];
 
 // Initialize application
 document.addEventListener('DOMContentLoaded', () => {
@@ -91,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initTraits();
     initEquipment();
     initAppearance();
+    initDialogue();
+    initSavedCompanions();
     initExport();
     
     // Setup tab navigation
@@ -239,6 +248,12 @@ function setupRandomizeButtons() {
     if (randomizeAppearanceBtn) {
         randomizeAppearanceBtn.addEventListener('click', randomizeAppearance);
     }
+    
+    // Dialogue randomize button
+    const randomizeDialogueBtn = document.getElementById('randomize-dialogue');
+    if (randomizeDialogueBtn) {
+        randomizeDialogueBtn.addEventListener('click', randomizeDialogue);
+    }
 }
 
 function updateSummary() {
@@ -316,6 +331,7 @@ export function loadState(newState) {
     initTraits();
     initEquipment();
     initAppearance();
+    initDialogue();
     
     updateSummary();
 }
@@ -342,6 +358,9 @@ export function randomizeAll() {
     
     // Randomize appearance
     randomizeAppearance();
+    
+    // Randomize dialogue
+    randomizeDialogue();
     
     updateSummary();
 }

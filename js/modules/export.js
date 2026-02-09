@@ -96,6 +96,14 @@ function generateBannerlordXML(state) {
     // Generate Bannerlord-compatible XML format with proper heroes XML structure
     const companionId = (state.name?.toLowerCase().replace(/\s+/g, '_') || 'companion');
     
+    // Add dialogue as comments in XML
+    const dialogueComments = state.dialogue ? `
+    <!-- COMPANION DIALOGUE & STORY (for reference, not used by game) -->
+    <!-- Greetings: ${(state.dialogue.greetings || []).join(' | ')} -->
+    <!-- Story: ${state.dialogue.story || 'No story provided'} -->
+    <!-- Personality: ${state.dialogue.personality || 'No personality provided'} -->
+    ` : '';
+    
     const xml = `<?xml version="1.0" encoding="utf-8"?>
 <SPCharacters>
   <SPCharacter id="${companionId}"
@@ -106,7 +114,7 @@ function generateBannerlordXML(state) {
                is_hero="true"
                occupation="Wanderer"
                culture="Culture.${state.culture || 'vlandia'}">
-    
+    ${dialogueComments}
     <!-- Physical Appearance -->
     <face>
       <face_key_template value="BodyProperty.fighter_${state.culture || 'vlandia'}_${state.gender || 'male'}" />
