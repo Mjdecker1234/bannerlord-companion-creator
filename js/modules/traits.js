@@ -73,4 +73,18 @@ function updateTrait(traitId, value) {
     }
 }
 
-export { updateTrait };
+// Randomize all traits
+function randomizeTraits() {
+    const state = getState();
+    const newTraits = { ...state.traits };
+    
+    // Set each trait to a random value between -2 and +2
+    Object.keys(newTraits).forEach(traitId => {
+        newTraits[traitId] = Math.floor(Math.random() * 5) - 2; // -2 to +2
+    });
+    
+    updateState({ traits: newTraits });
+    renderTraits();
+}
+
+export { updateTrait, randomizeTraits };
