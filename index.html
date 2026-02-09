@@ -52,6 +52,14 @@
                 <span class="tab-icon">👤</span>
                 <span class="tab-label">Appearance</span>
             </button>
+            <button class="tab-btn" data-tab="dialogue">
+                <span class="tab-icon">💬</span>
+                <span class="tab-label">Dialogue</span>
+            </button>
+            <button class="tab-btn" data-tab="saved">
+                <span class="tab-icon">📚</span>
+                <span class="tab-label">Saved</span>
+            </button>
             <button class="tab-btn" data-tab="export">
                 <span class="tab-icon">💾</span>
                 <span class="tab-label">Export</span>
@@ -125,6 +133,21 @@
                     <h2 class="section-title">Appearance Settings</h2>
                     <button class="btn-randomize-section" id="randomize-appearance">🎲 Randomize Appearance</button>
                     <div id="appearance-container" class="appearance-container"></div>
+                </section>
+
+                <!-- Dialogue Tab -->
+                <section id="tab-dialogue" class="tab-content">
+                    <h2 class="section-title">Dialogue & Story</h2>
+                    <p class="section-desc">Add personality and depth to your companion with custom dialogue and background story.</p>
+                    <button class="btn-randomize-section" id="randomize-dialogue">🎲 Randomize Dialogue</button>
+                    <div id="dialogue-container" class="dialogue-container"></div>
+                </section>
+
+                <!-- Saved Companions Tab -->
+                <section id="tab-saved" class="tab-content">
+                    <h2 class="section-title">Saved Companions</h2>
+                    <p class="section-desc">Save your companions locally in your browser and load them anytime.</p>
+                    <div id="saved-companions-container" class="saved-companions-container"></div>
                 </section>
 
                 <!-- Export Tab -->
