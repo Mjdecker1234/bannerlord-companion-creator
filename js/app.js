@@ -342,6 +342,3 @@ export function randomizeAll() {
     
     updateSummary();
 }
-
-// Export randomizeAll for use in other modules
-export { randomizeAll };
