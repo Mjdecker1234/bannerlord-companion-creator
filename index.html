@@ -12,6 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- JSZip library for creating ZIP files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" 
+            integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" 
+            crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Header -->
@@ -157,7 +162,8 @@
                         <div class="export-section">
                             <h3>📦 Download as Vortex Mod (Recommended)</h3>
                             <p class="export-desc">Download your companion as a complete Bannerlord mod package ready for Vortex Mod Manager installation.</p>
-                            <button id="download-vortex-mod" class="btn-primary">💾 Download Vortex Mod Files</button>
+                            <button id="download-vortex-zip" class="btn-primary">📦 Download as ZIP (Recommended)</button>
+                            <button id="download-vortex-mod" class="btn-secondary">💾 Download Individual Files</button>
                         </div>
                         <div class="export-section">
                             <h3>Export as JSON</h3>

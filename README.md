@@ -35,6 +35,8 @@ A complete, polished, single-page web application for creating custom companions
 
 ### 📦 Vortex Mod Export
 - **One-Click Mod Creation**: Download your companion as a complete Bannerlord mod
+- **ZIP Download**: Download a ready-to-install ZIP file with proper folder structure (Recommended)
+- **Individual Files Option**: Download SubModule.xml, spcharacters.xml, and README separately
 - **Vortex Compatible**: Ready for Vortex Mod Manager installation
 - **Complete Package**: Includes SubModule.xml, spcharacters.xml, and installation instructions
 - **Manual Installation Supported**: Can also be installed directly into game's Modules folder
@@ -109,6 +111,8 @@ A complete, polished, single-page web application for creating custom companions
 
 ### Export & Share
 - **Download as Vortex Mod**: Export your companion as a complete mod package ready for Vortex Mod Manager
+  - **ZIP Download (Recommended)**: One-click download of a complete, ready-to-install ZIP file with proper folder structure
+  - **Individual Files Option**: Download SubModule.xml, spcharacters.xml, and README separately
   - Generates SubModule.xml for mod structure
   - Creates spcharacters.xml with proper Bannerlord format
   - Includes installation instructions README
@@ -251,8 +255,16 @@ This site is ready for GitHub Pages deployment:
 
 ### Installing Your Companion
 
-#### Using Vortex Mod Manager (Recommended)
-1. Click "Download Vortex Mod Files" in the Export tab
+#### Using Vortex Mod Manager (Recommended - ZIP Download)
+1. Click "Download as ZIP (Recommended)" in the Export tab
+2. The ZIP file will be downloaded with the proper folder structure already set up
+3. Install via Vortex: Mods → Install From File
+4. Select the downloaded ZIP file
+5. Enable the mod in Vortex and in the game launcher
+6. Find your companion in taverns across Calradia!
+
+#### Using Vortex Mod Manager (Individual Files)
+1. Click "Download Individual Files" in the Export tab
 2. Create a folder with your companion's name (e.g., "SiegfriedCompanion")
 3. Inside it, create a "ModuleData" folder
 4. Place SubModule.xml in the root folder
@@ -263,11 +275,11 @@ This site is ready for GitHub Pages deployment:
 9. Find your companion in taverns across Calradia!
 
 #### Manual Installation
-1. Download the Vortex Mod Files
-2. Navigate to your Bannerlord installation folder
-3. Go to the Modules directory
-4. Create a new folder with your companion's name
-5. Follow the same structure as above
+1. Download the ZIP file or individual files
+2. If you downloaded the ZIP, extract it first
+3. Navigate to your Bannerlord installation folder
+4. Go to the Modules directory
+5. Copy the extracted companion folder into Modules
 6. Enable the mod in the game launcher
 
 ## 📝 Data Accuracy
