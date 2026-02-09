@@ -1,6 +1,6 @@
 // Main Application
 import { initCulture } from './modules/culture.js';
-import { initName, generateRandomName } from './modules/nameGen.js';
+import { initName, generateRandomName, randomizeGender } from './modules/nameGen.js';
 import { initAttributes, randomizeAttributes } from './modules/attributes.js';
 import { initSkills, randomizeSkills } from './modules/skills.js';
 import { initTraits, randomizeTraits } from './modules/traits.js';
@@ -322,7 +322,10 @@ export function loadState(newState) {
 
 // Randomize all companion data
 export function randomizeAll() {
-    // Randomize name
+    // Randomize gender
+    randomizeGender();
+    
+    // Randomize name (will use the newly randomized gender)
     generateRandomName();
     
     // Randomize attributes
