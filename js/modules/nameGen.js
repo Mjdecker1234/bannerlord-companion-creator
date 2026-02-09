@@ -49,6 +49,12 @@ function selectGender(gender) {
     generateRandomName();
 }
 
+function randomizeGender() {
+    const genders = ['male', 'female'];
+    const randomGender = genders[Math.floor(Math.random() * genders.length)];
+    selectGender(randomGender);
+}
+
 function generateRandomName() {
     const state = getState();
     const culture = state.culture || 'vlandia';
@@ -67,4 +73,4 @@ function updateNameDisplay() {
     }
 }
 
-export { generateRandomName, updateNameDisplay };
+export { generateRandomName, updateNameDisplay, randomizeGender };
