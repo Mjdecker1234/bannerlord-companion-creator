@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+    Custom Companions XML
+    Place your custom companion definitions here.
+    Companions created with the web tool can be exported and placed in this file.
+    The C# mod will automatically spawn companions with IDs starting with "companion_"
+-->
+<SPCharacters>
+    <!-- Example Companion - Delete this and add your own companions from the web creator -->
+    <SPCharacter id="companion_example_warrior"
+                 name="{=companion_example_warrior}Example Warrior"
+                 default_group="Infantry"
+                 is_hero="true"
+                 occupation="Wanderer"
+                 culture="Culture.vlandia"
+                 age="30"
+                 is_female="false">
+        
+        <face>
+            <face_key_template value="BodyProperty.fighter_vlandia_male" />
+            <BodyProperties version="4" age="30" weight="0.5" build="0.5" />
+        </face>
+
+        <skills>
+            <skill id="OneHanded" value="150" />
+            <skill id="TwoHanded" value="100" />
+            <skill id="Polearm" value="80" />
+            <skill id="Bow" value="50" />
+            <skill id="Crossbow" value="60" />
+            <skill id="Throwing" value="40" />
+            <skill id="Riding" value="120" />
+            <skill id="Athletics" value="100" />
+            <skill id="Crafting" value="50" />
+            <skill id="Scouting" value="60" />
+            <skill id="Tactics" value="80" />
+            <skill id="Roguery" value="30" />
+            <skill id="Charm" value="50" />
+            <skill id="Leadership" value="70" />
+            <skill id="Trade" value="40" />
+            <skill id="Steward" value="50" />
+            <skill id="Medicine" value="30" />
+            <skill id="Engineering" value="40" />
+        </skills>
+
+        <Traits>
+            <Trait id="Mercy" value="0" />
+            <Trait id="Valor" value="1" />
+            <Trait id="Honor" value="1" />
+            <Trait id="Generosity" value="0" />
+            <Trait id="Calculating" value="-1" />
+        </Traits>
+
+        <equipmentSet civilian="false">
+            <equipment slot="Item0" id="Item.vlandia_sword_4_t4" />
+            <equipment slot="Item1" id="Item.AR_shield_infantry_o2" />
+            <equipment slot="Item2" id="Item.western_spear_2_t2" />
+            <equipment slot="Body" id="Item.vlandia_armor_r" />
+            <equipment slot="Head" id="Item.vlandia_helmet_m" />
+            <equipment slot="Leg" id="Item.vlandia_boots_b" />
+            <equipment slot="Gloves" id="Item.vlandian_arm_wrappings" />
+            <equipment slot="Cape" id="Item.western_cape" />
+            <equipment slot="Horse" id="Item.vlandian_horse" />
+        </equipmentSet>
+    </SPCharacter>
+
+    <!-- Add more custom companions here -->
+    <!-- Use the web tool at https://mjdecker1234.github.io/bannerlord-companion-creator/ 
+         to create companions and export them as XML -->
+
+</SPCharacters>

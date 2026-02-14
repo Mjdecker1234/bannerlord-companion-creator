@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+    <Name value="Bannerlord Companion Creator"/>
+    <Id value="BannerlordCompanionCreator"/>
+    <Version value="v1.0.0"/>
+    <SingleplayerModule value="true"/>
+    <MultiplayerModule value="false"/>
+    <Official value="false"/>
+    
+    <!-- Dependencies -->
+    <DependedModules>
+        <DependedModule Id="Native"/>
+        <DependedModule Id="SandBoxCore"/>
+        <DependedModule Id="Sandbox"/>
+        <DependedModule Id="StoryMode" Optional="true"/>
+        <DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.11.3"/>
+    </DependedModules>
+    
+    <!-- SubModule DLL -->
+    <SubModules>
+        <SubModule>
+            <Name value="BannerlordCompanionCreator"/>
+            <DLLName value="BannerlordCompanionCreator.dll"/>
+            <SubModuleClassType value="BannerlordCompanionCreator.SubModule"/>
+            <Tags>
+                <Tag key="DedicatedServerType" value="none"/>
+                <Tag key="IsNoRenderModeElement" value="false"/>
+            </Tags>
+        </SubModule>
+    </SubModules>
+    
+    <!-- Load custom companions XML -->
+    <Xmls>
+        <XmlNode>
+            <XmlName id="SPCharacters" path="spcharacters"/>
+            <IncludedGameTypes>
+                <GameType value="Campaign"/>
+                <GameType value="CampaignStoryMode"/>
+            </IncludedGameTypes>
+        </XmlNode>
+    </Xmls>
+</Module>

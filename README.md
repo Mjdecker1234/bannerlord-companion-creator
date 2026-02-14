@@ -1,12 +1,30 @@
 # ⚔️ Mount & Blade II: Bannerlord Companion Creator
 
-A complete, polished, single-page web application for creating custom companions and wanderers for Mount & Blade II: Bannerlord. Inspired by the Butterlord companion creator, this tool provides a dark medieval-themed interface for fully customizing every aspect of your companion.
+A complete companion creation system for Mount & Blade II: Bannerlord featuring:
+- **Web-based Creator**: Polished single-page application for designing companions
+- **In-Game Mod**: C# mod with MCM integration to spawn companions directly in-game
 
 ![Bannerlord Companion Creator](https://img.shields.io/badge/Bannerlord-Companion%20Creator-c9a84c?style=for-the-badge)
 ![Pure HTML/CSS/JS](https://img.shields.io/badge/Tech-HTML%2FCSS%2FJS-blue?style=for-the-badge)
-![No Dependencies](https://img.shields.io/badge/Dependencies-None-green?style=for-the-badge)
+![C# Mod](https://img.shields.io/badge/Tech-C%23%20Mod-purple?style=for-the-badge)
 
-## 🎮 Features
+## 🎮 Two Ways to Use
+
+### 🌐 Web Creator (For Designing Companions)
+Use the [web tool](https://mjdecker1234.github.io/bannerlord-companion-creator/) to create and customize companions with a beautiful interface.
+
+### 🎯 In-Game Mod (NEW! - For Spawning Companions)
+Install the C# mod to spawn your created companions directly in-game with a button click via MCM!
+
+**Features:**
+- ✅ Spawn companions with one click in MCM menu
+- ✅ Smart detection - only spawns companions that don't exist yet
+- ✅ Dead companions stay dead (no resurrection)
+- ✅ Works with companions created in the web tool
+
+**[📖 See INSTALLATION.md for in-game mod setup instructions](INSTALLATION.md)**
+
+## 🎮 Web Creator Features
 
 ### 💾 Saved Companions System (NEW!)
 - **Local Storage Save System**: Save unlimited companions in your browser
