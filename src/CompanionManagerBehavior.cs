@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
 
@@ -42,7 +43,8 @@ namespace BannerlordCompanionCreator
                 // Get all character objects that are custom companions
                 var customCompanions = CharacterObject.All
                     .Where(c => c.Occupation == Occupation.Wanderer && 
-                                c.StringId.StartsWith("companion_"));
+                                c.StringId.StartsWith("companion_"))
+                    .ToList();
 
                 if (!customCompanions.Any())
                 {
@@ -55,27 +57,26 @@ namespace BannerlordCompanionCreator
                 int spawnedCount = 0;
                 int skippedCount = 0;
 
+                // Build a lookup dictionary of existing heroes for performance
+                var existingHeroes = Hero.All
+                    .Where(h => h.CharacterObject != null)
+                    .ToDictionary(h => h.CharacterObject, h => h);
+
                 foreach (var companionCharacter in customCompanions)
                 {
                     // Check if this companion already exists
-                    Hero existingHero = Hero.FindFirst(h => h.CharacterObject == companionCharacter);
-
-                    if (existingHero != null)
+                    if (existingHeroes.TryGetValue(companionCharacter, out Hero existingHero))
                     {
                         // Hero exists - check if they're dead
                         if (existingHero.IsDead)
                         {
-                            InformationManager.DisplayMessage(new InformationMessage(
-                                $"Skipping {companionCharacter.Name}: Companion is dead", 
-                                ColorHelper.Yellow));
+                            DisplaySkipMessage(companionCharacter.Name.ToString(), "Companion is dead");
                             skippedCount++;
                             continue;
                         }
                         else
                         {
-                            InformationManager.DisplayMessage(new InformationMessage(
-                                $"Skipping {companionCharacter.Name}: Already spawned", 
-                                ColorHelper.Yellow));
+                            DisplaySkipMessage(companionCharacter.Name.ToString(), "Already spawned");
                             skippedCount++;
                             continue;
                         }
@@ -106,6 +107,16 @@ namespace BannerlordCompanionCreator
                     $"Error spawning companions: {ex.Message}", 
                     ColorHelper.Red));
             }
+        }
+
+        /// <summary>
+        /// Helper method to display skip messages
+        /// </summary>
+        private void DisplaySkipMessage(string companionName, string reason)
+        {
+            InformationManager.DisplayMessage(new InformationMessage(
+                $"Skipping {companionName}: {reason}", 
+                ColorHelper.Yellow));
         }
 
         /// <summary>

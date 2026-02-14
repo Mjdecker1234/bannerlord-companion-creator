@@ -1,6 +1,8 @@
 using MCM.Abstractions.Base.Global;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
 
 namespace BannerlordCompanionCreator
 {
@@ -48,25 +50,25 @@ namespace BannerlordCompanionCreator
         [SettingPropertyGroup("Actions", GroupOrder = 1)]
         public void SpawnCompanions()
         {
-            if (TaleWorlds.CampaignSystem.Campaign.Current != null)
+            if (Campaign.Current != null)
             {
-                var behavior = TaleWorlds.CampaignSystem.Campaign.Current.GetCampaignBehavior<CompanionManagerBehavior>();
+                var behavior = Campaign.Current.GetCampaignBehavior<CompanionManagerBehavior>();
                 if (behavior != null)
                 {
                     behavior.SpawnCustomCompanions();
                 }
                 else
                 {
-                    TaleWorlds.Library.InformationManager.DisplayMessage(
-                        new TaleWorlds.Library.InformationMessage(
+                    InformationManager.DisplayMessage(
+                        new InformationMessage(
                             "Error: Companion Manager not initialized!",
                             ColorHelper.Red));
                 }
             }
             else
             {
-                TaleWorlds.Library.InformationManager.DisplayMessage(
-                    new TaleWorlds.Library.InformationMessage(
+                InformationManager.DisplayMessage(
+                    new InformationMessage(
                         "Please load a campaign first!",
                         ColorHelper.Yellow));
             }
