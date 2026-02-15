@@ -1,5 +1,7 @@
 # Bannerlord Companion Creator - In-Game Mod Installation Guide
 
+> ⚠️ **IMPORTANT**: This mod does NOT include a pre-built DLL file. You MUST build the DLL yourself before the mod will work. See [Step 2: Build the Mod](#step-2-build-the-mod) for instructions.
+
 ## Overview
 
 This mod allows you to spawn custom companions in Mount & Blade II: Bannerlord directly in-game using the Mod Configuration Menu (MCM).
@@ -15,8 +17,10 @@ This mod allows you to spawn custom companions in Mount & Blade II: Bannerlord d
 ## Requirements
 
 1. **Mount & Blade II: Bannerlord** (Latest version recommended)
-2. **Mod Configuration Menu (MCM)** v5.11.3 or higher
+2. **.NET 6.0 SDK** (Required for building the mod) - [Download here](https://dotnet.microsoft.com/download)
+3. **Mod Configuration Menu (MCM)** v5.11.3 or higher (Required)
    - Download from [Nexus Mods](https://www.nexusmods.com/mountandblade2bannerlord/mods/612)
+   - MCM is required because the mod uses MCM for its settings and configuration interface
 
 ## Installation Steps
 
@@ -56,6 +60,9 @@ This mod allows you to spawn custom companions in Mount & Blade II: Bannerlord d
    ```bash
    dotnet build BannerlordCompanionCreator.csproj
    ```
+5. After a successful build, the DLL will be located at `bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll`
+
+> ✅ **Build Verification**: After building, verify that `bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll` exists in your repository folder. This DLL is required for the mod to load.
 
 ### Step 3: Install the Mod
 

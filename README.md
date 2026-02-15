@@ -16,8 +16,10 @@ Use the [web tool](https://mjdecker1234.github.io/bannerlord-companion-creator/)
 ### 🎯 In-Game Mod (NEW! - For Spawning Companions)
 Install the C# mod to spawn your created companions directly in-game with a button click via MCM!
 
+> ⚠️ **IMPORTANT**: The mod DLL is NOT pre-built. You must compile it yourself before the mod will work. See [INSTALLATION.md](INSTALLATION.md) for build instructions.
+
 **Features:**
-- ✅ Spawn companions with one click in MCM menu
+- ✅ Spawn companions with one click in MCM menu (requires MCM v5.11.3+)
 - ✅ Smart detection - only spawns companions that don't exist yet
 - ✅ Dead companions stay dead (no resurrection)
 - ✅ Works with companions created in the web tool
