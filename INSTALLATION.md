@@ -18,19 +18,17 @@ This mod allows you to spawn custom companions in Mount & Blade II: Bannerlord d
 
 1. **Mount & Blade II: Bannerlord** (Latest version recommended)
 2. **.NET 6.0 SDK** (Required for building the mod) - [Download here](https://dotnet.microsoft.com/download)
-3. **Mod Configuration Menu (MCM)** v5.11.3 or higher (Optional, but recommended for in-game configuration)
+3. **Mod Configuration Menu (MCM)** v5.11.3 or higher (Required)
    - Download from [Nexus Mods](https://www.nexusmods.com/mountandblade2bannerlord/mods/612)
-   - The mod will work without MCM, but you won't have access to the in-game configuration menu
+   - MCM is required because the mod uses MCM for its settings and configuration interface
 
 ## Installation Steps
 
-### Step 1: Install MCM (Optional, but Recommended)
+### Step 1: Install MCM (Required)
 
 1. Download [Mod Configuration Menu (MCM)](https://www.nexusmods.com/mountandblade2bannerlord/mods/612) from Nexus Mods
 2. Install it using Vortex Mod Manager or manually
 3. Enable MCM in the game launcher
-
-**Note**: The mod will work without MCM, but you won't be able to use the in-game configuration menu to spawn companions. You can still manually add companions to the XML files.
 
 ### Step 2: Build the Mod
 

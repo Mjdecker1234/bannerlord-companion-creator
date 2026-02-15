@@ -19,7 +19,7 @@ Install the C# mod to spawn your created companions directly in-game with a butt
 > ⚠️ **IMPORTANT**: The mod DLL is NOT pre-built. You must compile it yourself before the mod will work. See [INSTALLATION.md](INSTALLATION.md) for build instructions.
 
 **Features:**
-- ✅ Spawn companions with one click in MCM menu (MCM is optional but recommended)
+- ✅ Spawn companions with one click in MCM menu (requires MCM v5.11.3+)
 - ✅ Smart detection - only spawns companions that don't exist yet
 - ✅ Dead companions stay dead (no resurrection)
 - ✅ Works with companions created in the web tool

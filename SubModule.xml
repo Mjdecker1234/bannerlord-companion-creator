@@ -13,7 +13,7 @@
         <DependedModule Id="SandBoxCore"/>
         <DependedModule Id="Sandbox"/>
         <DependedModule Id="StoryMode" Optional="true"/>
-        <DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.11.3" Optional="true"/>
+        <DependedModule Id="Bannerlord.MBOptionScreen" DependentVersion="v5.11.3"/>
     </DependedModules>
     
     <!-- SubModule DLL -->
