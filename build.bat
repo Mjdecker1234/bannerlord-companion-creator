@@ -6,20 +6,6 @@ echo Bannerlord Companion Creator - Build Script
 echo ========================================
 echo.
 
-REM Check if BANNERLORD_GAME_DIR is set
-if "%BANNERLORD_GAME_DIR%"=="" (
-    echo ERROR: BANNERLORD_GAME_DIR environment variable is not set!
-    echo.
-    echo Please set it to your Bannerlord installation directory:
-    echo Example: set BANNERLORD_GAME_DIR=C:\Program Files ^(x86^)\Steam\steamapps\common\Mount ^& Blade II Bannerlord
-    echo.
-    pause
-    exit /b 1
-)
-
-echo Using Bannerlord directory: %BANNERLORD_GAME_DIR%
-echo.
-
 REM Check if .NET SDK is available
 dotnet --version >nul 2>&1
 if errorlevel 1 (
@@ -30,16 +16,28 @@ if errorlevel 1 (
     exit /b 1
 )
 
+REM If BANNERLORD_GAME_DIR is not set, build stubs for compilation
+if "%BANNERLORD_GAME_DIR%"=="" (
+    echo BANNERLORD_GAME_DIR not set - building with stub reference assemblies...
+    echo ^(The compiled DLL will still work with the real game^)
+    echo.
+
+    dotnet build stubs\TaleWorlds.Library\TaleWorlds.Library.csproj || goto :buildfail
+    dotnet build stubs\TaleWorlds.Core\TaleWorlds.Core.csproj || goto :buildfail
+    dotnet build stubs\TaleWorlds.Localization\TaleWorlds.Localization.csproj || goto :buildfail
+    dotnet build stubs\TaleWorlds.ObjectSystem\TaleWorlds.ObjectSystem.csproj || goto :buildfail
+    dotnet build stubs\TaleWorlds.MountAndBlade\TaleWorlds.MountAndBlade.csproj || goto :buildfail
+    dotnet build stubs\TaleWorlds.CampaignSystem\TaleWorlds.CampaignSystem.csproj || goto :buildfail
+) else (
+    echo Using Bannerlord directory: %BANNERLORD_GAME_DIR%
+)
+echo.
+
 echo Building the mod...
 echo.
 dotnet build BannerlordCompanionCreator.csproj --configuration Release
 
-if errorlevel 1 (
-    echo.
-    echo Build FAILED!
-    pause
-    exit /b 1
-)
+if errorlevel 1 goto :buildfail
 
 echo.
 echo ========================================
@@ -49,8 +47,15 @@ echo.
 echo The DLL has been built to: bin\Win64_Shipping_Client\BannerlordCompanionCreator.dll
 echo.
 echo To install the mod:
-echo 1. Copy this entire folder to: %BANNERLORD_GAME_DIR%\Modules\BannerlordCompanionCreator\
+echo 1. Copy this entire folder to your Bannerlord Modules directory
 echo 2. Enable the mod in the Bannerlord launcher
 echo 3. Make sure MCM is also installed and enabled
 echo.
 pause
+exit /b 0
+
+:buildfail
+echo.
+echo Build FAILED!
+pause
+exit /b 1

@@ -1,0 +1,41 @@
+name: Build DLL
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Build stub reference assemblies
+      run: |
+        dotnet build stubs/TaleWorlds.Library/TaleWorlds.Library.csproj
+        dotnet build stubs/TaleWorlds.Core/TaleWorlds.Core.csproj
+        dotnet build stubs/TaleWorlds.Localization/TaleWorlds.Localization.csproj
+        dotnet build stubs/TaleWorlds.ObjectSystem/TaleWorlds.ObjectSystem.csproj
+        dotnet build stubs/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.csproj
+        dotnet build stubs/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.csproj
+
+    - name: Restore dependencies
+      run: dotnet restore BannerlordCompanionCreator.csproj
+
+    - name: Build mod DLL
+      run: dotnet build BannerlordCompanionCreator.csproj --configuration Release --no-restore
+
+    - name: Upload DLL artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: BannerlordCompanionCreator
+        path: bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll

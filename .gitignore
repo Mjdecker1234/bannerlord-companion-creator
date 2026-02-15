@@ -1,9 +1,12 @@
 # Build outputs
 bin/
 obj/
-*.dll
 *.pdb
 *.cache
+
+# Stub build intermediates (source kept in stubs/, pre-built DLLs in GameLibs/)
+GameLibs/*.pdb
+GameLibs/*.deps.json
 
 # Visual Studio
 .vs/
