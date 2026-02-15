@@ -2,6 +2,7 @@ using MCM.Abstractions.Base.Global;
 using MCM.Abstractions.Attributes;
 using MCM.Abstractions.Attributes.v2;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 using TaleWorlds.Library;
 
 namespace BannerlordCompanionCreator
@@ -48,29 +49,33 @@ namespace BannerlordCompanionCreator
             HintText = "Spawns all companions defined in spcharacters.xml that haven't been spawned yet. Dead companions will not respawn.",
             Order = 0)]
         [SettingPropertyGroup("Actions", GroupOrder = 1)]
-        public void SpawnCompanions()
+        public bool SpawnCompanionsButton
         {
-            if (Campaign.Current != null)
+            get => false;
+            set
             {
-                var behavior = Campaign.Current.GetCampaignBehavior<CompanionManagerBehavior>();
-                if (behavior != null)
+                if (Campaign.Current != null)
                 {
-                    behavior.SpawnCustomCompanions();
+                    var behavior = Campaign.Current.GetCampaignBehavior<CompanionManagerBehavior>();
+                    if (behavior != null)
+                    {
+                        behavior.SpawnCustomCompanions();
+                    }
+                    else
+                    {
+                        InformationManager.DisplayMessage(
+                            new InformationMessage(
+                                "Error: Companion Manager not initialized!",
+                                ColorHelper.Red));
+                    }
                 }
                 else
                 {
                     InformationManager.DisplayMessage(
                         new InformationMessage(
-                            "Error: Companion Manager not initialized!",
-                            ColorHelper.Red));
+                            "Please load a campaign first!",
+                            ColorHelper.Yellow));
                 }
-            }
-            else
-            {
-                InformationManager.DisplayMessage(
-                    new InformationMessage(
-                        "Please load a campaign first!",
-                        ColorHelper.Yellow));
             }
         }
     }

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>TaleWorlds.CampaignSystem</AssemblyName>
+    <RootNamespace>TaleWorlds.CampaignSystem</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputPath>..\..\GameLibs\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>CS0626</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaleWorlds.Core\TaleWorlds.Core.csproj" />
+    <ProjectReference Include="..\TaleWorlds.Localization\TaleWorlds.Localization.csproj" />
+  </ItemGroup>
+</Project>

@@ -6,32 +6,42 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
-  <!-- Bannerlord Game Libraries -->
+  <ItemGroup>
+    <Compile Include="src\**\*.cs" />
+  </ItemGroup>
+
+  <!-- Bannerlord Game Libraries - use real DLLs when game is installed, otherwise use stubs -->
+  <PropertyGroup>
+    <GameLibDir Condition="'$(BANNERLORD_GAME_DIR)' != ''">$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client</GameLibDir>
+    <GameLibDir Condition="'$(BANNERLORD_GAME_DIR)' == ''">$(MSBuildProjectDirectory)\GameLibs</GameLibDir>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="TaleWorlds.Core">
-      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.Core.dll</HintPath>
+      <HintPath>$(GameLibDir)\TaleWorlds.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="TaleWorlds.MountAndBlade">
-      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
+      <HintPath>$(GameLibDir)\TaleWorlds.MountAndBlade.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="TaleWorlds.CampaignSystem">
-      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
+      <HintPath>$(GameLibDir)\TaleWorlds.CampaignSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="TaleWorlds.ObjectSystem">
-      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.ObjectSystem.dll</HintPath>
+      <HintPath>$(GameLibDir)\TaleWorlds.ObjectSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="TaleWorlds.Library">
-      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.Library.dll</HintPath>
+      <HintPath>$(GameLibDir)\TaleWorlds.Library.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="TaleWorlds.Localization">
-      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll</HintPath>
+      <HintPath>$(GameLibDir)\TaleWorlds.Localization.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -44,6 +54,7 @@
   <!-- Build output directory -->
   <PropertyGroup>
     <OutputPath>bin\Win64_Shipping_Client\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
 </Project>

@@ -1,9 +1,15 @@
-# Build outputs
-bin/
+# Build outputs (keep bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll)
+bin/*
+!bin/Win64_Shipping_Client/
+bin/Win64_Shipping_Client/*
+!bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll
 obj/
-*.dll
 *.pdb
 *.cache
+
+# Stub build intermediates (source kept in stubs/, pre-built DLLs in GameLibs/)
+GameLibs/*.pdb
+GameLibs/*.deps.json
 
 # Visual Studio
 .vs/
