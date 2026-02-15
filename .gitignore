@@ -1,5 +1,8 @@
-# Build outputs
-bin/
+# Build outputs (keep bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll)
+bin/*
+!bin/Win64_Shipping_Client/
+bin/Win64_Shipping_Client/*
+!bin/Win64_Shipping_Client/BannerlordCompanionCreator.dll
 obj/
 *.pdb
 *.cache
