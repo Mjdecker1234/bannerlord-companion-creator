@@ -2,22 +2,6 @@
 // At runtime, the real game DLLs are used instead.
 namespace TaleWorlds.Core
 {
-    public struct Color
-    {
-        public float Red;
-        public float Green;
-        public float Blue;
-        public float Alpha;
-
-        public Color(float red, float green, float blue, float alpha = 1f)
-        {
-            Red = red;
-            Green = green;
-            Blue = blue;
-            Alpha = alpha;
-        }
-    }
-
     public static class InformationManager
     {
         public static void DisplayMessage(InformationMessage message) { }
@@ -26,7 +10,7 @@ namespace TaleWorlds.Core
     public class InformationMessage
     {
         public InformationMessage(string message) { }
-        public InformationMessage(string message, Color color) { }
+        public InformationMessage(string message, TaleWorlds.Library.Color color) { }
     }
 
     public static class MBRandom

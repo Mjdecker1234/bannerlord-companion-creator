@@ -42,8 +42,8 @@ namespace BannerlordCompanionCreator
     /// </summary>
     public static class ColorHelper
     {
-        public static Color Green => new Color(0f, 1f, 0f);
-        public static Color Red => new Color(1f, 0f, 0f);
-        public static Color Yellow => new Color(1f, 1f, 0f);
+        public static TaleWorlds.Library.Color Green => new TaleWorlds.Library.Color(0f, 1f, 0f);
+        public static TaleWorlds.Library.Color Red => new TaleWorlds.Library.Color(1f, 0f, 0f);
+        public static TaleWorlds.Library.Color Yellow => new TaleWorlds.Library.Color(1f, 1f, 0f);
     }
 }

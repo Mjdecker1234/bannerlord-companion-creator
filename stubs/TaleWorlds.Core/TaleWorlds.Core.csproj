@@ -8,4 +8,9 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoWarn>CS0626</NoWarn>
   </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="TaleWorlds.Library">
+      <HintPath>..\..\GameLibs\TaleWorlds.Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
