@@ -1,0 +1,70 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BannerlordCompanionCreator", "BannerlordCompanionCreator.csproj", "{DFF29E8D-4CBD-BB05-A620-E92473E72C06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stubs", "stubs", "{CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaleWorlds.CampaignSystem", "stubs\TaleWorlds.CampaignSystem\TaleWorlds.CampaignSystem.csproj", "{747AC989-3578-38B1-8443-310C39847C7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaleWorlds.Core", "stubs\TaleWorlds.Core\TaleWorlds.Core.csproj", "{E957916E-E8DC-A096-47B5-FDE1D0A28C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaleWorlds.Library", "stubs\TaleWorlds.Library\TaleWorlds.Library.csproj", "{57AD52AE-E363-FC60-954C-04EE90D40F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaleWorlds.Localization", "stubs\TaleWorlds.Localization\TaleWorlds.Localization.csproj", "{DFB6AF33-C9AB-C3A8-10AE-3ACD5A158754}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaleWorlds.MountAndBlade", "stubs\TaleWorlds.MountAndBlade\TaleWorlds.MountAndBlade.csproj", "{6BE9F4BE-D1BC-60F0-D106-59C8739A259F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaleWorlds.ObjectSystem", "stubs\TaleWorlds.ObjectSystem\TaleWorlds.ObjectSystem.csproj", "{4D3EC1B9-F46D-63F4-8858-4564E9980E1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFF29E8D-4CBD-BB05-A620-E92473E72C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF29E8D-4CBD-BB05-A620-E92473E72C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF29E8D-4CBD-BB05-A620-E92473E72C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF29E8D-4CBD-BB05-A620-E92473E72C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{747AC989-3578-38B1-8443-310C39847C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{747AC989-3578-38B1-8443-310C39847C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{747AC989-3578-38B1-8443-310C39847C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{747AC989-3578-38B1-8443-310C39847C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E957916E-E8DC-A096-47B5-FDE1D0A28C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E957916E-E8DC-A096-47B5-FDE1D0A28C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E957916E-E8DC-A096-47B5-FDE1D0A28C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E957916E-E8DC-A096-47B5-FDE1D0A28C74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57AD52AE-E363-FC60-954C-04EE90D40F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57AD52AE-E363-FC60-954C-04EE90D40F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57AD52AE-E363-FC60-954C-04EE90D40F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57AD52AE-E363-FC60-954C-04EE90D40F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB6AF33-C9AB-C3A8-10AE-3ACD5A158754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB6AF33-C9AB-C3A8-10AE-3ACD5A158754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB6AF33-C9AB-C3A8-10AE-3ACD5A158754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB6AF33-C9AB-C3A8-10AE-3ACD5A158754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BE9F4BE-D1BC-60F0-D106-59C8739A259F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE9F4BE-D1BC-60F0-D106-59C8739A259F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE9F4BE-D1BC-60F0-D106-59C8739A259F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE9F4BE-D1BC-60F0-D106-59C8739A259F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3EC1B9-F46D-63F4-8858-4564E9980E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3EC1B9-F46D-63F4-8858-4564E9980E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3EC1B9-F46D-63F4-8858-4564E9980E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3EC1B9-F46D-63F4-8858-4564E9980E1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{747AC989-3578-38B1-8443-310C39847C7E} = {CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}
+		{E957916E-E8DC-A096-47B5-FDE1D0A28C74} = {CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}
+		{57AD52AE-E363-FC60-954C-04EE90D40F1F} = {CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}
+		{DFB6AF33-C9AB-C3A8-10AE-3ACD5A158754} = {CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}
+		{6BE9F4BE-D1BC-60F0-D106-59C8739A259F} = {CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}
+		{4D3EC1B9-F46D-63F4-8858-4564E9980E1D} = {CF16BC1C-BDEA-B3AA-CE85-637DF72D6D3F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56A1441E-7B24-4B40-B938-6DBAE51CB4E8}
+	EndGlobalSection
+EndGlobal
